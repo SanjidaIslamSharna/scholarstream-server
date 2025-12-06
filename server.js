@@ -9,9 +9,6 @@ connectDB();
 app.use(cors());
 app.use(express.json());
 
-// routes
-const userRoutes = require("./routes/userRoutes");
-app.use("/api/users", userRoutes);
 
 app.get("/", (req, res) => {
   res.send("ScholarStream API is running...");
