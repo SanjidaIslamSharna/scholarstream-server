@@ -1,9 +1,7 @@
 const admin = require('firebase-admin');
-const path = require('path');
 
 // resolve absolute path from env variable
-const serviceAccountPath = path.resolve(process.env.FIREBASE_CERT_PATH);
-const serviceAccount = require(serviceAccountPath);
+const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
 
 if (!admin.apps.length) {
   admin.initializeApp({

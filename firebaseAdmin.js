@@ -2,11 +2,11 @@ const admin = require("firebase-admin");
 const path = require("path");
 
 
-const serviceAccountPath = process.env.FIREBASE_CERT_PATH;
+const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
 
 if (!admin.apps.length) {
   admin.initializeApp({
-    credential: admin.credential.cert(require(path.resolve(__dirname, serviceAccountPath))),
+    credential: admin.credential.cert(serviceAccount),
   });
 }
 
